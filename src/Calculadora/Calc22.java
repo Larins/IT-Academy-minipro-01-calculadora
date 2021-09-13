@@ -1,5 +1,4 @@
 package Calculadora;
-import java.util.Scanner;
 
 public class Calc22 {
 	public static void main(String[] args) {
