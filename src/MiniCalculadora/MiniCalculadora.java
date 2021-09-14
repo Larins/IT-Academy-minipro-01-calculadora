@@ -11,12 +11,13 @@ public class MiniCalculadora {
 	    
 		//El usuario puede introducir la operación deseada
 	    System.out.println("Indica la operación");
-	    System.out.println("\tBásicas: [+] [-] [x] [/] [%]");
+	    System.out.println("\tBásicas: [+] [-] [x] [/]");
+	    System.out.println("\tValor absoluto y Resto de la división: [A] [%]");
 	    System.out.println("\tPotencias y Raíces: [P] [R]");
-	    System.out.println("\tValor absoluto: [A]");
-	    System.out.println("\tLogaritmo en base 10 o en base E: [L] [E]");
+	    System.out.println("\tLogaritmo en base 10 y en base E: [L] [E]");
 	    System.out.println("\tConversión a radianes: [C]");
 	    System.out.println("\tTrigonometría: [1]Seno [2]Coseno [3]Tangente [4]Cotangente [5]Secante [6]Cosecante ");
+	    System.out.println("\tMemoria: [G]Guardar [U]Usar [B]Borrar");
 	    
 	    //El usuario puede introducir el primer operando
 	    try {
@@ -25,21 +26,21 @@ public class MiniCalculadora {
 			Scanner sc = new Scanner(System.in);
 		    String entrada = sc.next();
 		    char oper = entrada.charAt(0);
-		    
 	    	System.out.println("Introduce un número: [x] [Pi] [E]\n\t[x] = el número que escojas o la base de la raíz/potencia/logaritmo\n\t[Pi] = " + Pi + "\n\t[E] = " + E);
 		    entrada = sc.next();
 		    if (entrada.equals("Pi")) {entrada = Pi;}
 		    if (entrada.equals("E")) {entrada = E;}
 		    double num1 = Double.parseDouble(entrada);
 	
-	    //El usuario puede introducir el segundo operando en caso de desearlo
+	    //El usuario puede introducir el segundo (cuando corresponda)
+		    
 		    System.out.println("Introduce otro número: [y] [Pi] [E]\n\t[y] = el número que escojas o el exponente de la raíz/potencia\n\t[Pi] = " + Pi + "\n\t[E] = " + E);
 		    System.out.println("Si solo necesitas un operando, introduce cualquier número.");
 		    entrada = sc.next();
 		    if (entrada.equals("Pi")) {entrada = Pi;}
 		    if (entrada.equals("E")) {entrada = E;}
 		    double num2 = Double.parseDouble(entrada);
-
+		     
 	    
 	    //Ejecución de la operación, que se muestra por pantalla, así como su resultado
 	    if(oper == '+') {
