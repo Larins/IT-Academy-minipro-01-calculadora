@@ -32,6 +32,7 @@ public class Calculadora {
 	public void setNum2(int num2) {
 		this.num2 = num2;
 	}
+	
 
 	// CONSTANTES
 		// Valores numéricos de uso habitual en operaciones matemáticas
@@ -41,6 +42,8 @@ public class Calculadora {
 
 	double pi = Math.PI;
 	double e = Math.E;
+	
+	
 
 	// OPERADORES/OPERACIONES
 		// Creamos una variable de tenum1to que contenga las diferentes opciones
@@ -49,13 +52,15 @@ public class Calculadora {
 	enum operadores {
 		suma, resta, multip, div, mod, abs, exp, root, log10, logE, convRad, sin, cosin, tan, cotan, sec, cosec;
 	};
+	
 
 	public Calculadora() {
 		{
 			resultado = 0;
 			Scanner operadores = new Scanner(System.in);
 			Scanner operandos = new Scanner(System.in);
-		}}
+		}
+	}
 		
 	public int suma(int num1, int num2) 
     { 

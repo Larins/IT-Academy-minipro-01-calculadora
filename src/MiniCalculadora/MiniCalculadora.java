@@ -17,7 +17,7 @@ public class MiniCalculadora {
 	    System.out.println("\tLogaritmo en base 10 y en base E: [L] [E]");
 	    System.out.println("\tConversión a radianes: [C]");
 	    System.out.println("\tTrigonometría: [1]Seno [2]Coseno [3]Tangente [4]Cotangente [5]Secante [6]Cosecante ");
-	    System.out.println("\tMemoria: [G]Guardar [U]Usar [B]Borrar");
+	    System.out.println("\tMemoria: [G]Guardar [U]Usar [B]Borrar (solo en calc científica)");
 	    
 	    //El usuario puede introducir el primer operando
 	    try {
@@ -91,7 +91,7 @@ public class MiniCalculadora {
 	    } else if (oper == 'E'){
 	    	double resultado = Math.log(num1);
 	        System.out.println("LOGARITMO DE E");
-	        System.out.println("La operación es: Logaritmo de " + num1 + " en base 10");
+	        System.out.println("La operación es: Logaritmo de " + num1 + " en base E");
 	        System.out.println("El resultado es: " + resultado);
 	    } else if (oper == 'C'){
 	    	double resultado = Math.toRadians(num1);
@@ -119,7 +119,7 @@ public class MiniCalculadora {
 	        System.out.println("La operación es: Cotangente de " + num1);
 	        System.out.println("El resultado es: " + resultado);
 	    } else if (oper == '5'){
-	    	double resultado = Math.cos(num1);
+	    	double resultado = 1/Math.cos(num1);
 	        System.out.println("SECANTE");
 	        System.out.println("La operación es: Secante de " + num1);
 	        System.out.println("El resultado es: " + resultado);
