@@ -8,12 +8,21 @@ import javax.swing.JOptionPane;
 
 public class Calculadora {
 	public static void main(String[] args) throws Exception {
+		
+		// Variables que necesitarán los métodos más adelante
+		
 		boolean continuar = true;
-		int opciomenu;
+		int opcionmenu;
 		String Pi = Double.toString(Math.PI);
 		String E = Double.toString(Math.E);
-		Scanner opcio = new Scanner(System.in);
+		Scanner opcion = new Scanner(System.in);
+		
+		// Menú principal: operaciones disponibles
+		// Con un bucle do-while el programa seguirá pidiendo al usuario si desea realizar una nueva operación
+		// El programa termina solo si se pulsa la opción "Salir" o si salta error de try-catch
+		
 		do {
+			
 			System.out.println("-------------------------------------");
 		    System.out.println("Indica la operación");
 			System.out.println("-------------------------------------");
@@ -26,16 +35,19 @@ public class Calculadora {
 			System.out.println("\tSalir: [0]");
 
 			try {
-				opciomenu = opcio.nextInt();
-
 				
-				if (opciomenu > 0 && opciomenu <= 7) { 
-					//Operaciones con 2 operandos
+				opcionmenu = opcion.nextInt();
+
+				// Divido el bucle en dos partes
+				// En esta primera parte, aparecen las operaciones con 2 operandos
+				// El programa solicitará al usuario que introduzca ambos operandos
+				
+				if (opcionmenu > 0 && opcionmenu <= 7) { 	
 					
 					String n1 = JOptionPane.showInputDialog("Introduce un número: [x] [Pi] [E]\n\t[x] = el número que escojas o la base de la raíz/potencia/logaritmo\n\t[Pi] = " + Pi.substring(0, Math.min(Pi.length(), 6)) + "\n\t[E] = " + E.substring(0, Math.min(E.length(), 6)));
 					String n2 = JOptionPane.showInputDialog("Introduce un número: [x] [Pi] [E]\n\t[x] = el número que escojas o la base de la raíz/potencia/logaritmo\n\t[Pi] = " + Pi.substring(0, Math.min(Pi.length(), 6)) + "\n\t[E] = " + E.substring(0, Math.min(E.length(), 6)));
 					
-					switch (opciomenu) {			
+					switch (opcionmenu) {			
 					case 1:// Suma
 				        double suma = Double.parseDouble(n1) + Double.parseDouble(n2);
 				        System.out.println("SUMA");
@@ -100,111 +112,114 @@ public class Calculadora {
 					
 					}
 				
-				} else if (opciomenu > 7 && opciomenu <= 18) {
-					//Operaciones con 1 operando
+				} else if (opcionmenu > 7 && opcionmenu <= 18) {
+					
+					// Segunda parte del bucle
+					// En esta segunda parte, aparecen las operaciones con 1 operando
+					// El programa solicitará al usuario que introduzca 1 operando
 					
 					String n1 = JOptionPane.showInputDialog("Introduce un número: [x] [Pi] [E]\n\t[x] = el número que escojas o la base de la raíz/potencia/logaritmo\n\t[Pi] = " + Pi.substring(0, Math.min(Pi.length(), 6)) + "\n\t[E] = " + E.substring(0, Math.min(E.length(), 6)));
 					
-					switch (opciomenu) {			
+					switch (opcionmenu) {			
 					
 					case 8:// Logaritmo de 10
 						
-				        /*double suma = Double.parseDouble(n1);
-				        System.out.println("SUMA");
-				        System.out.println("La operación es: " );
-				        System.out.printf("El resultado es: %.3f ", suma);
+				        double log10 = Math.log10(Double.parseDouble(n1));
+				        System.out.println("LOGARITMO (BASE 10)");
+				        System.out.println("La operación es: Logaritmo de " + n1 + " en base 10" );
+				        System.out.printf("El resultado es: %.3f ", log10);
 				        System.out.println("\n\n");
-						*/break;
+						break;
 					
 					case 9:// Logaritmo de E
 						
-				        /*double suma = Double.parseDouble(n1);
-				        System.out.println("SUMA");
-				        System.out.println("La operación es: " );
-				        System.out.printf("El resultado es: %.3f ", suma);
+				        double logE = Math.log(Double.parseDouble(n1));
+				        System.out.println("LOGARITMO (BASE E)");
+				        System.out.println("La operación es: Logaritmo de " + n1 + " en base E" );
+				        System.out.printf("El resultado es: %.3f ", logE);
 				        System.out.println("\n\n");
-						*/break;
+						break;
 					
 					case 10:// Seno
 						
-				        /*double suma = Double.parseDouble(n1);
-				        System.out.println("SUMA");
-				        System.out.println("La operación es: " );
-				        System.out.printf("El resultado es: %.3f ", suma);
+				        double seno = Math.sin(Double.parseDouble(n1)*Math.PI/180);
+				        System.out.println("SENO");
+				        System.out.println("La operación es: Seno de " + n1);
+				        System.out.printf("El resultado es: %.3f ", seno);
 				        System.out.println("\n\n");
-						*/break;
+						break;
 					
 					case 11:// Coseno
 						
-				        /*double suma = Double.parseDouble(n1);
-				        System.out.println("SUMA");
-				        System.out.println("La operación es: " );
-				        System.out.printf("El resultado es: %.3f ", suma);
+				        double coseno = Math.cos(Double.parseDouble(n1)*Math.PI/180);
+				        System.out.println("COSENO");
+				        System.out.println("La operación es: Coseno de " + n1 );
+				        System.out.printf("El resultado es: %.3f ", coseno);
 				        System.out.println("\n\n");
-						*/break;
+						break;
 					
 					case 12:// Tangente
 						
-				        /*double suma = Double.parseDouble(n1);
-				        System.out.println("SUMA");
-				        System.out.println("La operación es: " );
-				        System.out.printf("El resultado es: %.3f ", suma);
+				        double tan = Math.tan(Double.parseDouble(n1)*Math.PI/180);
+				        System.out.println("TANGENTE");
+				        System.out.println("La operación es: Tangente de " + n1 );
+				        System.out.printf("El resultado es: %.3f ", tan);
 				        System.out.println("\n\n");
-						*/break;
+						break;
 						
 					case 13:// Cotangente
 						
-				        /*double suma = Double.parseDouble(n1);
-				        System.out.println("SUMA");
-				        System.out.println("La operación es: " );
-				        System.out.printf("El resultado es: %.3f ", suma);
+				        double cotan = 1/Math.tan(Double.parseDouble(n1)*Math.PI/180);
+				        System.out.println("COTANGENTE");
+				        System.out.println("La operación es: Cotagente de " + n1 );
+				        System.out.printf("El resultado es: %.3f ", cotan);
 				        System.out.println("\n\n");
-						*/break;
+						break;
 					
 					case 14:// Secante
 						
-				        /*double suma = Double.parseDouble(n1);
-				        System.out.println("SUMA");
-				        System.out.println("La operación es: " );
-				        System.out.printf("El resultado es: %.3f ", suma);
+				        double sec = 1/Math.cos(Double.parseDouble(n1)*Math.PI/180);
+				        System.out.println("SECANTE");
+				        System.out.println("La operación es: Secante de " + n1 );
+				        System.out.printf("El resultado es: %.3f ", sec);
 				        System.out.println("\n\n");
-						*/break;
+						break;
 
 					case 15:// Cosecante
 						
-				        /*double suma = Double.parseDouble(n1);
-				        System.out.println("SUMA");
-				        System.out.println("La operación es: " );
-				        System.out.printf("El resultado es: %.3f ", suma);
+				        double csc = 1/Math.sin(Double.parseDouble(n1)*Math.PI/180);
+				        System.out.println("COSECANTE");
+				        System.out.println("La operación es: Cosecante de " + n1 );
+				        System.out.printf("El resultado es: %.3f ", csc);
 				        System.out.println("\n\n");
-						*/break;
+						break;
 
 					case 16:// Radianes a grados
 						
-				        /*double suma = Double.parseDouble(n1);
-				        System.out.println("SUMA");
-				        System.out.println("La operación es: " );
-				        System.out.printf("El resultado es: %.3f ", suma);
+				        double radToGrad = Double.parseDouble(n1)*180/Math.PI;
+				        System.out.println("RADIANES A GRADOS");
+				        System.out.println("La operación es: Conversión de " + n1 + " radianes a grados" );
+				        System.out.printf("El resultado es: %.3f ", radToGrad);
 				        System.out.println("\n\n");
-						*/break;
+						break;
 
 					case 17:// Grados a radianes
 						
-				        /*double suma = Double.parseDouble(n1);
-				        System.out.println("SUMA");
-				        System.out.println("La operación es: " );
-				        System.out.printf("El resultado es: %.3f ", suma);
+				        double gradToRad = Double.parseDouble(n1)*Math.PI/180;
+				        System.out.println("GRADOS A RADIANES");
+				        System.out.println("La operación es: Conversión de " + n1 + " grados a radianes" );
+				        System.out.printf("El resultado es: %.3f ", gradToRad);
 				        System.out.println("\n\n");
-						*/break;
+						break;
 
 					case 18:// Valor absoluto
 						
-				        /*double suma = Double.parseDouble(n1);
-				        System.out.println("SUMA");
-				        System.out.println("La operación es: " );
-				        System.out.printf("El resultado es: %.3f ", suma);
+				        double abs = Math.abs(Double.parseDouble(n1));
+				        System.out.println("VALOR ABSOLUTO");
+				        System.out.println("La operación es: Valor absoluto de " + n1 );
+				        System.out.printf("El resultado es: %.3f ", abs);
 				        System.out.println("\n\n");
-						*/break;
+						break;
 					}
 					
 				} else {
@@ -214,8 +229,8 @@ public class Calculadora {
 				System.out.println("Debes introducir un valor numérico\n");
 			} catch (InputMismatchException i) {
 
-				System.out.println("Por favor, escoge una de las opciones del menú\n");
-				opcio.nextLine();
+				System.out.println("Por favor, escoge una de las opcionnes del menú\n");
+				opcion.nextLine();
 			}
 		} while (continuar);
 
